@@ -35,3 +35,23 @@ $('a[href*=#]:not([href=#])').click(function () {
     }
   }
 });
+
+// Lazy thingy
+$('.producto__foto').click(function(){
+  // Obtengo la imágen
+  var img_url = $(this).find('img:first').attr('src');
+  var img = $('<img />').attr('src', img_url)
+  .load(function() {  // Cuando termine de cargarse en caché...
+      if (!this.complete || typeof this.naturalWidth === 'undefined' || this.naturalWidth === 0) {
+          alert('Algo salió mal :(');
+      } else {
+          $('.fullscreen--derecha').css('background-image','url("'+img.attr('src')+'")');
+          $('.fullscreen--izquierda').css('background-image','url("'+img.attr('src')+'")');
+          $('.fullscreen').addClass('fullscreen--is-active');
+      }
+  });
+});
+// Cerrar
+$('.fullscreen').click(function(){
+  $('.fullscreen').removeClass('fullscreen--is-active');
+});

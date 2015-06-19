@@ -33,6 +33,7 @@
     //border-radius: 2px;
     overflow: hidden;
     background-color: darkorange;
+    cursor: pointer;
     @include media('>=tablet'){
       &:after {
         content: ' ';
