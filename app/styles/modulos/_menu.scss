@@ -1,0 +1,115 @@
+/**
+ * Menu
+ * Mobile first
+ *
+ * Logo centrado
+ * 4 secciones
+ */
+
+.menu {
+//  lost-utility: edit;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+  background-color: white;
+  border-bottom: 5px solid orange;
+  @include media('>=tablet'){
+    position: relative;
+  }
+  &__content {
+    position: relative;
+  }
+  &__toggle {
+    @include media('>=tablet'){
+      display: none;
+    }
+    font-size: 30px;
+    position: absolute;
+    right: 1rem;
+    top: 45%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    transition: color .5s ease-in-out;
+    &:hover {
+      color: orange;
+    }
+  }
+  &__logo {
+    @include media('>=tablet'){
+      margin: 1rem auto;
+      height: 100px;
+      width: 100px;
+      border-width: 5px;
+    }
+    margin: .5rem;
+    background-image: url('../images/store.svg');
+    background-position: center center;
+    background-size: 65% 65%;
+    background-repeat: no-repeat;
+    border: 3px solid orange;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+  }
+  &__lista {
+    position: absolute;
+    width: 100%;
+    top: 63px;
+    z-index: 2;
+    transition: all .5s ease-in-out;
+    transform: translate3d(100%,0,0);
+    &--is-active {
+      transform: translate3d(0,0,0);
+    }
+    @include media('>=tablet') {
+      position: relative;
+      top:auto;
+      transition: none;
+      transform: none;
+      lost-center: 600px;
+      margin-bottom: 1rem;
+    }
+  }
+  &__item {
+    @include media('>=tablet'){
+      lost-column: 1/4;
+      border: none;
+    }
+    text-align: center;
+    border-bottom: 2px solid orange;
+    background-color: white;
+    a {
+      line-height: 5rem;
+      font-size: 1.5rem;
+      position: relative;
+      @include media('>=tablet'){
+        line-height: 2rem;
+        &:before,
+        &:after {
+          content: ' ';
+          position: absolute;
+          top: 50%;
+          transform: translate3d(0,-50%,0);
+          width: 3px;
+          height: 0;
+          background-color: orange;
+          transition: all .3s ease-in-out;
+        }
+        &:before {
+          left: -15px;
+        }
+        &:after {
+          right: -15px;
+        }
+        &:hover {
+          &:before,
+          &:after {
+            height: 100%;
+          }
+        }
+      }
+    }
+  }
+}

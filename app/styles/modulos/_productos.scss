@@ -1,0 +1,86 @@
+/**
+ * Productos
+ * Listado de productos
+ * Mobile: Abarca todo el ancho. Foto, Título y Detalle.
+ * Tablet: 3 columnas.
+ * Desktop: 5 columnas.
+ */
+
+.productos {
+  lost-center: 1140px;
+  margin: 5rem auto;
+  @include media('<desktop'){
+    padding: 0 10px;
+  }
+}
+
+.producto {
+  @include media('<tablet'){
+    lost-column: 1;
+  }
+  @include media('>=tablet','<desktop'){
+    lost-column: 1/3;
+  }
+  @include media('>=desktop'){
+    lost-column: 1/5;
+  }
+  margin-bottom: 4rem;
+  &:last-child {
+    margin-bottom: 0;
+  }
+  &__foto {
+    position: relative;
+    //border-radius: 2px;
+    overflow: hidden;
+    background-color: darkorange;
+    @include media('>=tablet'){
+      &:after {
+        content: ' ';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        transition: all .3s ease-in-out;
+        background-color: transparentize(black,.65);
+  //      background-image: linear-gradient(transparent, transparentize(black,.5));
+      }
+      img {
+        width: 100%;
+        transition: all .3s ease-in-out;
+      }
+      &:hover {
+        img {
+          transform: scale3d(.75,.75,1);
+        }
+        &:before {
+          content: "\f055";
+          font-family: FontAwesome;
+          font-size: 2rem;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%,-50%);
+          color: transparentize(white,.5);
+          z-index: 1;
+        }
+        &:after {
+          width: 75%;
+          height: 75%;
+          top: 12.5%;
+          left: 12.5%;
+          opacity: 1;
+        }
+      }
+    }
+  }
+  &__titulo {
+    font-size: 1.25rem;
+    line-height: 2rem;
+    margin-top: 1rem;
+  }
+  &__detalle {
+
+  }
+}

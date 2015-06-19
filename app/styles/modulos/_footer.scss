@@ -1,0 +1,65 @@
+/**
+ * Footer
+ * Información de contacto, redes sociales y sitemap
+ */
+
+.footer {
+  width: 100%;
+  background-color: black;
+  border-top: 5px solid orange;
+  padding: 2rem 10px;
+  @include media('>=desktop'){
+    padding: 2rem 0;
+  }
+}
+
+.contacto {
+  lost-center: 1140px;
+  color: white;
+  &__grupo {
+    @include media('<tablet'){
+      lost-column: 1;
+    }
+    @include media('>=tablet'){
+      lost-column: 1/3;
+    }
+  }
+  &__titulo {
+    font-size: 1.5rem;
+    line-height: 3rem;
+  }
+  &__cuerpo {
+
+  }
+  &__social {
+    lost-column: 1/3 3 10px;
+    line-height: 2rem;
+    text-align: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    font-weight: 800;
+    letter-spacing: 1px;
+    transition: all .3s ease-in-out;
+    &--gplus {
+      background-color: #dd4b39;
+      border-bottom: 5px solid darken(#dd4b39,20%);
+      &:hover {
+        background-color: darken(#dd4b39,5%);
+      }
+    }
+    &--twitter {
+      background-color: #55acee;
+      border-bottom: 5px solid darken(#55acee,20%);
+      &:hover {
+        background-color: darken(#55acee,5%);
+      }
+    }
+    &--facebook {
+      background-color: #3b5998;
+      border-bottom: 5px solid darken(#3b5998,20%);
+      &:hover {
+        background-color: darken(#3b5998,5%);
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+// bower:scss
+@import "bower_components/include-media/dist/_include-media.scss";
+// endbower
+
+// Modulos
+@import 'modulos/menu';
+@import 'modulos/header';
+@import 'modulos/productos';
+@import 'modulos/footer';
+
+// General
+body {
+  //lost-utility: edit;
+  font-family: 'Ubuntu', sans-serif;
+}
