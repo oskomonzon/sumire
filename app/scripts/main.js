@@ -39,14 +39,16 @@ $('a[href*=#]:not([href=#])').click(function () {
 // Lazy thingy
 $('.producto__foto').click(function(){
   // Obtengo la imágen
-  var img_url = $(this).find('img:first').attr('src');
-  var img = $('<img />').attr('src', img_url)
+  var imgUrl = $(this).find('img:first').attr('src');
+  var imgInfo = $(this).find('img:first').attr('alt');
+  var img = $('<img />').attr('src', imgUrl)
   .load(function() {  // Cuando termine de cargarse en caché...
       if (!this.complete || typeof this.naturalWidth === 'undefined' || this.naturalWidth === 0) {
           alert('Algo salió mal :(');
       } else {
           $('.fullscreen--derecha').css('background-image','url("'+img.attr('src')+'")');
           $('.fullscreen--izquierda').css('background-image','url("'+img.attr('src')+'")');
+          $('.fullscreen--izquierda').attr('data-info',imgInfo);
           $('.fullscreen').addClass('fullscreen--is-active');
       }
   });

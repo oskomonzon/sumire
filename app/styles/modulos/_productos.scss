@@ -30,7 +30,6 @@
   }
   &__foto {
     position: relative;
-    //border-radius: 2px;
     overflow: hidden;
     background-color: darkorange;
     cursor: pointer;
@@ -45,7 +44,6 @@
         opacity: 0;
         transition: all .3s ease-in-out;
         background-color: transparentize(black,.65);
-  //      background-image: linear-gradient(transparent, transparentize(black,.5));
       }
       img {
         width: 100%;
